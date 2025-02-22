@@ -1,5 +1,8 @@
 using System;
+using EmployeePermissions.Application.Services;
+using EmployeePermissions.Domain.Repositories;
 using EmployeePermissions.Infrastructure.Context;
+using EmployeePermissions.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,10 +27,17 @@ namespace EmployeePermissions
         {
             services.AddControllers();
 
+            // Register DbContext
             var connectionString = Configuration.GetConnectionString("Connection");
             services.AddDbContext<EmployeePermissionsDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
+            // Register Repositories
+            services.AddScoped<IPermissionRepository, PermissionRepository>();
+            services.AddScoped<IPermissionTypeRepository, PermissionTypeRepository>();
+
+            // Register Services
+            services.AddScoped<IPermissionService, PermissionService>();
 
             // Swagger Configuration
             services.AddSwaggerGen(c =>
@@ -37,6 +47,7 @@ namespace EmployeePermissions
                 c.SchemaFilter<GuidSchemaFilter>();
             });
 
+            // CORS Configuration
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllOrigins", builder =>
@@ -47,17 +58,27 @@ namespace EmployeePermissions
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EmployeePermissionsDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
+                app.UseDeveloperExceptionPage();
+
+                // Apply pending migrations
+                dbContext.Database.Migrate();
+
                 // Swagger Configuration
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "EmployeePermissions API V1");
-                    c.RoutePrefix = string.Empty;
+                    c.RoutePrefix = string.Empty; // Set Swagger UI at the root
                 });
+            }
+            else
+            {
+                // Global error handling for production
+                app.UseExceptionHandler("/error");
             }
 
             app.UseCors("AllowAllOrigins");

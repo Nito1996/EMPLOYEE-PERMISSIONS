@@ -64,3 +64,4 @@ C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\E
 C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\obj\Debug\netcoreapp3.1\EmployeePermissions.Web.dll
 C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\obj\Debug\netcoreapp3.1\EmployeePermissions.Web.pdb
 C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\obj\Debug\netcoreapp3.1\EmployeePermissions.Web.genruntimeconfig.cache
+C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\obj\Debug\netcoreapp3.1\EmployeePermissions.Web.sourcelink.json
