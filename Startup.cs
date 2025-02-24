@@ -3,6 +3,7 @@ using EmployeePermissions.Application.Services;
 using EmployeePermissions.Domain.Repositories;
 using EmployeePermissions.Infrastructure.Context;
 using EmployeePermissions.Infrastructure.Repositories;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,20 @@ namespace EmployeePermissions
             services.AddScoped<IPermissionRepository, PermissionRepository>();
             services.AddScoped<IPermissionTypeRepository, PermissionTypeRepository>();
 
+            // Register FluentValidation
+            services.AddControllers()
+             .AddFluentValidation(fv =>
+             {
+                 fv.RegisterValidatorsFromAssemblyContaining<CreateEmployeePermissionDtoValidator>();
+             });
+
+            // Register FluentValidation
+            services.AddControllers()
+             .AddFluentValidation(fv =>
+             {
+                 fv.RegisterValidatorsFromAssemblyContaining<UpdateEmployeePermissionDtoValidator>();
+            });
+
             // Register Services
             services.AddScoped<IPermissionService, PermissionService>();
 
@@ -46,6 +61,8 @@ namespace EmployeePermissions
                 c.MapType<Guid>(() => new OpenApiSchema { Type = "string", Format = "uuid" });
                 c.SchemaFilter<GuidSchemaFilter>();
             });
+
+
 
             // CORS Configuration
             services.AddCors(options =>

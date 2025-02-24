@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmployeePermissions.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+074ff32db6fd45748186d7f1a6fe4ad82dd4a106")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c007c0c0fbdb43d2009b45c5ac47b817afbe0e01")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmployeePermissions.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmployeePermissions.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

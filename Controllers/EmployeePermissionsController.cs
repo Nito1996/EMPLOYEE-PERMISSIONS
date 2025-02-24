@@ -25,10 +25,10 @@ namespace EmployeePermissions.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateEmployeePermission([FromBody] CreateEmployeePermissionDto newPermission)
         {
-            if (newPermission == null || string.IsNullOrEmpty(newPermission.PermissionDescription)) return BadRequest("Invalid request. Permission data is required.");
-
             try
             {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
+               
                 var permissionDto = await _permissionService.CreateAsync(newPermission);
                 return StatusCode(201, permissionDto);
             }
@@ -82,12 +82,7 @@ namespace EmployeePermissions.Web.Controllers
                 if (!ModelState.IsValid) return BadRequest(ModelState);
 
                 await _permissionService.UpdateAsync(id, updatePermission);
-                return Ok();
-            }
-            catch (KeyNotFoundException ex)
-            {
-                _logger.LogError(ex, "Permission with ID {PermissionId} not found.", id);
-                return NotFound("Permission not found.");
+                return Ok("Permission updated successfully.");
             }
             catch (Exception ex)
             {

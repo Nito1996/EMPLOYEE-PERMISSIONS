@@ -65,3 +65,7 @@ C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\E
 C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\obj\Debug\netcoreapp3.1\EmployeePermissions.Web.pdb
 C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\obj\Debug\netcoreapp3.1\EmployeePermissions.Web.genruntimeconfig.cache
 C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\obj\Debug\netcoreapp3.1\EmployeePermissions.Web.sourcelink.json
+C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\randy\OneDrive\Escritorio\PROGRAMMING\C#\Projects\EmployeePermissions\EmployeePermissions\bin\Debug\netcoreapp3.1\AutoMapper.dll
